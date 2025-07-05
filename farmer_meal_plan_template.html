@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Fresh Budget Meals - Feed Your Family for $60/Week</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(52, 152, 219, 0.9), rgba(46, 204, 113, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e8f5e8" width="1200" height="600"/><g fill="%23c8e6c9" opacity="0.3"><circle cx="200" cy="150" r="80"/><circle cx="800" cy="400" r="120"/><circle cx="1000" cy="200" r="60"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .hero-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #27ae60;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 60px;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: #27ae60;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #27ae60;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+
+        /* Meal Preview */
+        .meal-preview {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+        }
+
+        .meal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .meal-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .meal-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .meal-image {
+            height: 200px;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            position: relative;
+        }
+
+        .meal-content {
+            padding: 25px;
+        }
+
+        .meal-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #27ae60;
+        }
+
+        .meal-card p {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .meal-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            border-left: 5px solid #27ae60;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 60px;
+            color: #27ae60;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #27ae60;
+        }
+
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #27ae60;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #34495e;
+            padding-top: 30px;
+            color: #95a5a6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .hero-content h2 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 20px;
+            }
+
+            .hero-stats {
+                gap: 30px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .meal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero-content h2 {
+                font-size: 28px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+
+            .stat-item {
+                min-width: 120px;
+                padding: 15px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-card, .meal-card, .testimonial-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .meal-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .meal-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🌾</div>
+                    <h1>Farm Fresh Budget</h1>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#meals">Meals</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Feed Your Family for Just $60/Week</h2>
+                <p>Wholesome, budget-friendly meals that bring families together around the dinner table</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">$60</span>
+                        <span>Weekly Budget</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">7</span>
+                        <span>Days of Meals</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">20</span>
+                        <span>Healthy Recipes</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span>Family Size</span>
+                    </div>
+                </div>
+                
+                <a href="#download" class="cta-button">Get Your Meal Plan Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Farm Fresh Budget?</h2>
+            <p class="section-subtitle">Real solutions for real families who want to eat well without breaking the bank</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Budget-Friendly</h3>
+                    <p>Complete weekly meal plans designed to feed a family of 4 for just $55-60, including all ingredients and detailed shopping lists.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🥗</div>
+                    <h3>Nutritionally Balanced</h3>
+                    <p>Every meal includes protein, vegetables, and whole grains. Nutritionist-approved recipes ensure your family gets essential nutrients.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Time-Saving</h3>
+                    <p>Batch cooking tips, meal prep strategies, and leftover planning help you spend less time cooking and more time with family.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Complete Shopping Lists</h3>
+                    <p>Organized shopping lists with estimated prices make grocery shopping quick and efficient. No more wandering the aisles!</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🍳</div>
+                    <h3>Easy Recipes</h3>
+                    <p>Simple, step-by-step recipes using common ingredients. Perfect for busy parents and beginner cooks.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Seasonal Flexibility</h3>
+                    <p>Money-saving tips for seasonal produce and store brand substitutions to keep costs even lower.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="meal-preview" id="meals">
+        <div class="container">
+            <h2 class="section-title">Sample Meals from Your Plan</h2>
+            <p class="section-subtitle">Delicious, satisfying meals that don't taste like you're on a budget</p>
+            
+            <div class="meal-grid">
+                <div class="meal-card">
+                    <div class="meal-image">🍳</div>
+                    <div class="meal-content">
+                        <h3>Breakfast: Veggie Scrambled Eggs</h3>
+                        <p>Fluffy scrambled eggs with mixed vegetables and toast. A protein-packed start to your day that costs just $1.50 per serving.</p>
+                        <div class="meal-price">$1.50 per serving</div>
+                    </div>
+                </div>
+                
+                <div class="meal-card">
+                    <div class="meal-image">🍲</div>
+                    <div class="meal-content">
+                        <h3>Dinner: Turkey & Vegetable Stir-Fry</h3>
+                        <p>Ground turkey with frozen mixed vegetables over rice. A complete meal with protein, vegetables, and grains for the whole family.</p>
+                        <div class="meal-price">$2.25 per serving</div>
+                    </div>
+                </div>
+                
+                <div class="meal-card">
+                    <div class="meal-image">🥔</div>
+                    <div class="meal-content">
+                        <h3>Lunch: Loaded Baked Potato</h3>
+                        <p>Baked potato topped with cheese, leftover turkey, and steamed broccoli. A hearty, satisfying meal that uses leftovers creatively.</p>
+                        <div class="meal-price">$1.75 per serving</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Families Are Saying</h2>
+            <p class="section-subtitle">Real reviews from real families who've transformed their meal planning</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">This meal plan saved our family over $200 a month! The recipes are simple enough for my teenage kids to help with, and we're eating better than ever.</p>
+                    <p class="testimonial-author">- Sarah M., Mother of 3</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I was skeptical about feeding my family healthy meals on $60 a week, but this plan proved it's possible. The shopping lists make grocery trips so much easier.</p>
+                    <p class="testimonial-author">- David L., Father of 2</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The batch cooking tips changed everything! I spend Sunday afternoon prepping, and dinner is ready in 20 minutes all week. Life-changing for busy working parents.</p>
+                    <p class="testimonial-author">- Maria G., Working Mom</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Farm Fresh Budget</h4>
+                    <p>Helping families eat well on a budget since 2020. Our mission is to make healthy, home-cooked meals accessible to every family, regardless of income.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#meals">Sample Meals</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#download">Download</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Shopping Tips</a></li>
+                        <li><a href="#">Seasonal Guides</a></li>
+                        <li><a href="#">Meal Prep Videos</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: hello@farmfreshbudget.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Follow us on social media for daily tips and recipes!</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Farm Fresh Budget. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            // In a real implementation, this would trigger a download or redirect to payment
+            alert('Thank you for your interest! Your meal plan download would start here.');
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .meal-card, .testimonial-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
